@@ -1,0 +1,62 @@
+{
+    "general": 
+    {
+      "name": {"en":"Our Product"},
+      "version": 1,
+      "vendor": "Someone",
+      "description":{"en":"Our product denoises images."}
+    },
+  	"reconstruction": 
+    {
+      "transfer_protocol": 
+      {
+        "protocol": "ISMRMRD",
+        "version": 10001000000
+      },
+      "port": 1,
+      "emitter": "image",
+      "injector": "image",
+      "can_process_adjustment_data": false,
+      "can_use_gpu": true,
+      "min_count_required_gpus": 1,
+      "min_required_gpu_memory": 2,
+      "min_required_memory": 4,
+      "min_count_required_cpu_cores": 1,
+      "content_qalification_type": "product",
+      "signature": "BIG_SIGNATURE"
+    },
+    "parameters": {
+      "description": "This is Subtle Medical's schema for the runtime parameters.",
+      "type": "object",
+      "$schema": "http://json-schema.org/draft/2019-09/schema#",
+      "$id": "https://TODO",
+      "required": [ "preset", "is_adjustment_data", "user_parameter_string" ],
+      "properties": {
+        "preset": {
+          "description": "This is an enum containing algorithm presets",
+          "type": "integer",
+          "name":{"en":"user facing name of this enum"},
+          "values":[
+            {"id":1,
+             "en":"value1"},
+            { "id":2,
+              "en":"value1"}
+            ],
+		  "enum":[1,2],
+          "default":1
+        },
+        "user_parameter_string": {
+          "description": "This contains our parameters",
+          "type": "string",
+          "default": "Lorem ipsum sit amet",
+          "name":{
+            "en":"user facing name of this string"
+          }
+        },
+        "is_adjustment_data": {
+          "description": "This boolean will indicate whether the current data represents adjustment data.",
+          "type": "boolean"
+        }
+      }
+    }
+}
